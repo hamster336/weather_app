@@ -11,36 +11,203 @@
 
     <SearchView
         android:id="@+id/searchView"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
 
+        android:layout_marginTop="25dp"
         android:background="@drawable/searchviewshape"
-        android:iconifiedByDefault="false"
 
+        android:iconifiedByDefault="false"
         android:queryHint="@string/search"
         android:searchIcon="@drawable/search"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/detailViewer"
-        android:layout_width="232dp"
-        android:layout_height="345dp"
+    <TextView
+        android:id="@+id/viewBox"
+        android:layout_width="240dp"
+        android:layout_height="395dp"
+        android:layout_marginTop="208dp"
 
-        android:background="@drawable/view"
+        android:background="@drawable/gradient_view"
 
-        android:layout_marginTop="188dp"
+
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.565"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/today"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+
+        android:text="@string/today"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/viewBox" />
+
+    <TextView
+        android:id="@+id/cityName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="10dp"
+        android:drawableLeft="@drawable/location"
+        android:drawablePadding="11dp"
+
+        android:text="city"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="21sp"
+
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/viewBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="18dp"
+        android:text="@string/meassage"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+         />
+
+    <TextView
+        android:id="@+id/temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="8dp"
+        android:text="00"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="100sp"
+
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/viewBox"
+        app:layout_constraintHorizontal_bias="0.312"
+        app:layout_constraintStart_toStartOf="@+id/viewBox"
+        app:layout_constraintTop_toBottomOf="@+id/today" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieAnimationView2"
+        android:layout_width="168dp"
+        android:layout_height="134dp"
+        android:layout_marginBottom="12dp"
+
+        app:layout_constraintBottom_toBottomOf="@+id/viewBox"
+        app:layout_constraintEnd_toEndOf="@+id/viewBox"
+        app:layout_constraintStart_toStartOf="@+id/viewBox"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/rain" />
+
+    <TextView
+        android:id="@+id/maxTemp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="8dp"
+        android:text="00"
+
+        android:textAlignment="center"
+
+        android:textColor="@color/white"
+
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/viewBox"
+        app:layout_constraintStart_toStartOf="@+id/viewBox"
+        app:layout_constraintTop_toBottomOf="@+id/temperature" />
+
+    <TextView
+        android:id="@+id/minTemp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="00"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+
+        android:textSize="18sp"
+
+        app:layout_constraintEnd_toEndOf="@+id/maxTemp"
+        app:layout_constraintStart_toStartOf="@+id/maxTemp"
+        app:layout_constraintTop_toBottomOf="@+id/maxTemp" />
+
+    <TextView
+        android:id="@+id/weekDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="10dp"
+        android:text="Tuesday"
+        android:textAlignment="center"
+
+        android:textColor="@color/white"
+        android:textSize="21sp"
+
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/viewBox"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/viewBox"
+        app:layout_constraintTop_toBottomOf="@+id/viewBox" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="01 January, 2000"
+        android:textAlignment="center"
+
+        android:textColor="@color/white"
+        android:textSize="21sp"
+
+
+        app:layout_constraintEnd_toEndOf="@+id/weekDay"
+        app:layout_constraintStart_toStartOf="@+id/weekDay"
+        app:layout_constraintTop_toBottomOf="@+id/weekDay" />
+
+    <TextView
+        android:id="@+id/tempUnit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="8dp"
+        android:text="°C"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="50sp"
+
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/viewBox"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/temperature"
+        app:layout_constraintTop_toBottomOf="@+id/today" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,9 +6,13 @@ android {
     namespace = "com.hamster.weatherapp"
     compileSdk = 34
 
+    viewBinding{
+        enable = true
+    }
+
     defaultConfig {
         applicationId = "com.hamster.weatherapp"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -40,4 +44,13 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
+    // lotte animation
+    implementation("com.airbnb.android:lottie:6.5.2")
+
+    // retrofit
+    implementation ("com.squareup.retrofit2:retrofit:2.11.0")
+
+    // json converter
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
 }

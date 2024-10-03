@@ -3,5 +3,8 @@
     <string name="search">Enter City</string>
     <string name="weather">Weather Updates,\nWe\'ve got the details</string>
     <string name="creator">Designed by\nAASHUTOSH</string>
+    <string name="today">Today</string>
+    <string name="meassage">Have a nice day :)</string>
+    <string name="date">01 January, 2000</string>
 
 </resources>
