@@ -2,11 +2,14 @@ package com.hamster.weatherapp;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.SearchView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 
 import com.hamster.weatherapp.databinding.ActivityMainBinding;
 
@@ -33,12 +36,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
 
+        // preventing the app from being hidden status bar and navigation buttons
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+        View decorView = getWindow().getDecorView();
+        WindowInsetsControllerCompat controller = WindowCompat.getInsetsController(getWindow(), decorView);
+
+        // Ensure content adapts to system bars
+        controller.setSystemBarsBehavior(WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
+
+
+
         // Initialize the binding (equivalent to lazy initialization in Kotlin)
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         // Set the content view to the root of the binding
         setContentView(binding.getRoot());
         // call the method to fetch data
-        fetchWeatherData("Kathmandu");
+        fetchWeatherData("Mahendranagar");
         searchCity();
     }
 
@@ -49,6 +62,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 fetchWeatherData(query);  // Pass the searched city name
+
+                searchView.clearFocus();  // Clear focus to ensure the keyboard disappears
+
                 return true;
             }
 
@@ -93,8 +109,7 @@ public class MainActivity extends AppCompatActivity {
 //                    Log.d("TAG", "MAX Temp: " + tempMax);
 //                    Log.d("TAG", "MIN Temp: " + tempMin);
 
-                    binding.maxTemp.setText("Max Temp : " + tempMax + " °C");
-                    binding.minTemp.setText("Min Temp : " + (tempMin) + " °C");
+                    binding.tempRange.setText(tempMin + "/" + tempMax + " °C");
 
                     binding.cityName.setText(cityName);
                     binding.weekDay.setText(dayName());
